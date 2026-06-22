@@ -13,6 +13,9 @@ public class Main {
 
         expenseService.addExpense(expense);
 
-        System.out.println("Total Expenses: " + expenseService.getExpenseCount());
-    }
+        Expense expense2 = new Expense("Taxi", 20, "Transport");
+
+        expenseService.addExpense(expense2);
+
+        expenseService.showAllExpenses();    }
 }

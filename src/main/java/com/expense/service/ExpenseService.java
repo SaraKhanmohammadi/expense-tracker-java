@@ -15,6 +15,18 @@ public class ExpenseService {
     }
 
     public int getExpenseCount(){
+
         return expenses.size();
     }
+
+
+    public void showAllExpenses(){
+        for (Expense expense : expenses){
+            System.out.println(expense.getTitle()+ " | " + expense.getAmount()+ " | " + expense.getCategory() );
+
+        }
+    }
 }
+
+
+
