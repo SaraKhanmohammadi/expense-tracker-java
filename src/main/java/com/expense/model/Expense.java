@@ -1,6 +1,6 @@
 package com.expense.model;
 
-public class Expence {
+public class Expense {
     private  String title;
     private double amount;
     private String category;
