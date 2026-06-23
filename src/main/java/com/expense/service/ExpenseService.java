@@ -20,6 +20,7 @@ public class ExpenseService {
     }
 
 
+
     public void showAllExpenses(){
         for (Expense expense : expenses){
             System.out.println(expense.getTitle()+ " | " + expense.getAmount()+ " | " + expense.getCategory() );
