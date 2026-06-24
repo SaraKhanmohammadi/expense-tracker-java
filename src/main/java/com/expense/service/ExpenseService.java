@@ -1,33 +1,53 @@
 package com.expense.service;
+
 import com.expense.model.Expense;
+
 import java.util.ArrayList;
 
 public class ExpenseService {
 
-
     private ArrayList<Expense> expenses = new ArrayList<>();
 
-    public void addExpense(Expense expense) {
+    private int nextId = 1;
+
+    public void addExpense(
+            String title,
+            double amount,
+            String category) {
+
+        Expense expense =
+                new Expense(
+                        nextId,
+                        title,
+                        amount,
+                        category
+                );
 
         expenses.add(expense);
+
+        nextId++;
 
         System.out.println("Expense added successfully");
     }
 
-    public int getExpenseCount(){
+    public int getExpenseCount() {
 
         return expenses.size();
     }
 
+    public void showAllExpenses() {
 
+        for (Expense expense : expenses) {
 
-    public void showAllExpenses(){
-        for (Expense expense : expenses){
-            System.out.println(expense.getTitle()+ " | " + expense.getAmount()+ " | " + expense.getCategory() );
-
+            System.out.println(
+                    expense.getId()
+                            + " | "
+                            + expense.getTitle()
+                            + " | "
+                            + expense.getAmount()
+                            + " | "
+                            + expense.getCategory()
+            );
         }
     }
 }
-
-
-

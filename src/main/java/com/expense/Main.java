@@ -36,8 +36,8 @@ public class Main {
                     System.out.print("Enter category: ");
                     String category = scanner.nextLine();
 
-                    Expense expense = new Expense(title, amount, category);
-                    expenseService.addExpense(expense);
+                    expenseService.addExpense(title, amount, category);
+
 
                     break;
 
