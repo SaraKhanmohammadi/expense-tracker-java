@@ -18,7 +18,8 @@ public class Main {
             System.out.println("\n=== EXPENSE TRACKER ===");
             System.out.println("1. Add Expense");
             System.out.println("2. Show All Expenses");
-            System.out.println("3. Exit");
+            System.out.println("3. Delete Expense");
+            System.out.println("4. Exit");
 
             System.out.print("Choose option: ");
 
