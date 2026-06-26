@@ -25,4 +25,10 @@ public class Expense {
         return category;
     }
 
+    public void setTitle(String title) {this.title = title;}
+
+    public void setAmount(double amount) {this.amount = amount;}
+
+    public void setCategory(String category) {this.category = category;}
+
 }

@@ -19,7 +19,8 @@ public class Main {
             System.out.println("1. Add Expense");
             System.out.println("2. Show All Expenses");
             System.out.println("3. Delete Expense");
-            System.out.println("4. Exit");
+            System.out.println("4. Update Expense");
+            System.out.println("5. Exit");
 
             System.out.print("Choose option: ");
 
@@ -54,6 +55,25 @@ public class Main {
                     break;
 
                 case 4:
+
+                    System.out.print("Enter Expense ID: ");
+                    int updateId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter new title: ");
+                    String newTitle = scanner.nextLine();
+
+                    System.out.print("Enter new amount: ");
+                    double newAmount = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    System.out.print("Enter new category: ");
+                    String newCategory = scanner.nextLine();
+
+                    expenseService.updateExpense(updateId, newTitle, newAmount, newCategory);
+
+                    break;
+                case 5:
                     running = false;
                     System.out.println("Goodbye");
                     break;

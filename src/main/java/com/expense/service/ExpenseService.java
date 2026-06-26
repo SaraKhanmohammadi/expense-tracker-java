@@ -62,4 +62,27 @@ public class ExpenseService {
 
         System.out.println("Expense not found");
     }
+
+    public void updateExpense(
+            int id,
+            String title,
+            double amount,
+            String category) {
+
+        for (Expense expense : expenses) {
+
+            if (expense.getId() == id) {
+
+                expense.setTitle(title);
+                expense.setAmount(amount);
+                expense.setCategory(category);
+
+                System.out.println("Expense updated successfully");
+
+                return;
+            }
+        }
+
+        System.out.println("Expense not found");
+    }
 }
