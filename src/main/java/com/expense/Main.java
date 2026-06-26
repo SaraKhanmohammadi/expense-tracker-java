@@ -44,7 +44,15 @@ public class Main {
                 case 2:
                     expenseService.showAllExpenses();
                     break;
+
                 case 3:
+                    System.out.print("Enter Expense ID: ");
+                    int id = scanner.nextInt();
+
+                    expenseService.deleteExpense(id);
+                    break;
+
+                case 4:
                     running = false;
                     System.out.println("Goodbye");
                     break;
