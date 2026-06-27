@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-
+import com.expense.model.Expense;
 public class FileService {
 
     private final String FILE_NAME = "expenses.txt";
@@ -51,5 +51,28 @@ public class FileService {
         }
 
         return expenses;
+    }
+
+
+    public void overwriteExpenses(ArrayList<Expense> expenses) {
+
+        try {
+
+            FileWriter writer = new FileWriter(FILE_NAME);
+
+            for (Expense expense : expenses) {
+
+                writer.write(expense.getId() + "," + expense.getTitle() + "," + expense.getAmount() + "," + expense.getCategory());
+
+                writer.write("\n");
+            }
+
+            writer.close();
+
+        }
+        catch (IOException e) {
+
+            System.out.println("Error saving expenses.");
+        }
     }
 }

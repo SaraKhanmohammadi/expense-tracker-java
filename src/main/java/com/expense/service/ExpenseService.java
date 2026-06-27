@@ -59,6 +59,7 @@ public class ExpenseService {
             if (expense.getId() == id) {
 
                 expenses.remove(expense);
+                saveAllExpenses();
 
                 System.out.println("Expense deleted successfully");
 
@@ -82,7 +83,7 @@ public class ExpenseService {
                 expense.setTitle(title);
                 expense.setAmount(amount);
                 expense.setCategory(category);
-
+                saveAllExpenses();
                 System.out.println("Expense updated successfully");
 
                 return;
@@ -117,5 +118,9 @@ public class ExpenseService {
         }
 
         System.out.println("Expenses loaded successfully");
+    }
+    public void saveAllExpenses() {
+
+        fileService.overwriteExpenses(expenses);
     }
 }
