@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         ExpenseService expenseService = new ExpenseService();
+        expenseService.loadExpenses();
         Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
