@@ -20,6 +20,25 @@ public class ExpenseService {
                 amount,
                 category
         );
+        if (title.trim().isEmpty()) {
+
+            System.out.println("Title cannot be empty.");
+
+            return;
+        }
+
+        if (amount <= 0) {
+
+            System.out.println("Amount must be greater than zero.");
+
+            return;
+        }
+        if (category.trim().isEmpty()) {
+
+            System.out.println("Category cannot be empty.");
+
+            return;
+        }
 
         expenses.add(expense);
 
