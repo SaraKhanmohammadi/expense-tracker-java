@@ -4,6 +4,7 @@ import com.expense.model.Expense;
 
 import java.util.ArrayList;
 import com.expense.util.FileService;
+import com.expense.exception.InvalidExpenseException;
 
 public class ExpenseService {
 
@@ -12,7 +13,30 @@ public class ExpenseService {
     private int nextId = 1;
     private FileService fileService = new FileService();
 
-    public void addExpense(String title, double amount, String category) {
+    public void addExpense(String title, double amount, String category)
+            throws InvalidExpenseException {
+
+
+        if (title.trim().isEmpty()) {
+
+            throw new InvalidExpenseException(
+                    "Title cannot be empty."
+            );
+        }
+
+
+        if (category.trim().isEmpty()) {
+
+            throw new InvalidExpenseException(
+                    "Category cannot be empty."
+            );
+        }
+        if (amount <= 0) {
+
+            throw new InvalidExpenseException(
+                    "Amount must be greater than zero."
+            );
+        }
 
         Expense expense = new Expense(
                 nextId,
@@ -20,25 +44,6 @@ public class ExpenseService {
                 amount,
                 category
         );
-        if (title.trim().isEmpty()) {
-
-            System.out.println("Title cannot be empty.");
-
-            return;
-        }
-
-        if (amount <= 0) {
-
-            System.out.println("Amount must be greater than zero.");
-
-            return;
-        }
-        if (category.trim().isEmpty()) {
-
-            System.out.println("Category cannot be empty.");
-
-            return;
-        }
 
         expenses.add(expense);
 
@@ -60,13 +65,7 @@ public class ExpenseService {
         for (Expense expense : expenses) {
 
             System.out.println(
-                    expense.getId()
-                            + " | "
-                            + expense.getTitle()
-                            + " | "
-                            + expense.getAmount()
-                            + " | "
-                            + expense.getCategory()
+                    expense.getId() + " | " + expense.getTitle() + " | " + expense.getAmount() + " | " + expense.getCategory()
             );
         }
     }

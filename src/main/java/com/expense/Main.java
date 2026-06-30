@@ -1,5 +1,5 @@
 package com.expense;
-
+import com.expense.exception.InvalidExpenseException;
 import com.expense.model.Expense;
 import com.expense.service.ExpenseService;
 import java.util.Scanner;
@@ -39,7 +39,14 @@ public class Main {
                     System.out.print("Enter category: ");
                     String category = scanner.nextLine();
 
-                    expenseService.addExpense(title, amount, category);
+                    try {
+
+                        expenseService.addExpense(title, amount, category);
+
+                    } catch (InvalidExpenseException e) {
+
+                        System.out.println(e.getMessage());
+                    }
 
 
                     break;
