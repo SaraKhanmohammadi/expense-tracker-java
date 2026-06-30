@@ -21,6 +21,7 @@ public class Main {
             System.out.println("2. Show All Expenses");
             System.out.println("3. Delete Expense");
             System.out.println("4. Update Expense");
+            System.out.println("5. Monthly Report");
             System.out.println("5. Exit");
 
             System.out.print("Choose option: ");
@@ -81,7 +82,13 @@ public class Main {
                     expenseService.updateExpense(updateId, newTitle, newAmount, newCategory);
 
                     break;
+
+
                 case 5:
+                    expenseService.generateReport();
+                    break;
+
+                case 6:
                     running = false;
                     System.out.println("Goodbye");
                     break;

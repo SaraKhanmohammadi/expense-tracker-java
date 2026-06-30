@@ -1,7 +1,7 @@
 package com.expense.service;
 
 import com.expense.model.Expense;
-
+import java.util.HashMap;
 import java.util.ArrayList;
 import com.expense.util.FileService;
 import com.expense.exception.InvalidExpenseException;
@@ -110,6 +110,37 @@ public class ExpenseService {
 
         System.out.println("Expense not found");
     }
+    public void generateReport() {
+
+        HashMap<String, Double> report = new HashMap<>();
+
+        double total = 0;
+        for (Expense expense : expenses) {
+
+            total += expense.getAmount();
+
+            String category = expense.getCategory();
+
+            double amount = expense.getAmount();
+
+            report.put(
+                    category,
+                    report.getOrDefault(category, 0.0) + amount
+            );
+
+        }
+        System.out.println("===== Monthly Report =====");
+        System.out.println("Total Expenses: " + total);
+
+        for (String category : report.keySet()) {
+
+            System.out.println(
+                    category + ": " + report.get(category)
+            );
+
+        }
+
+    }
     public void loadExpenses() {
 
         ArrayList<String> savedExpenses = fileService.readExpenses();
@@ -141,4 +172,6 @@ public class ExpenseService {
 
         fileService.overwriteExpenses(expenses);
     }
+
+
 }
