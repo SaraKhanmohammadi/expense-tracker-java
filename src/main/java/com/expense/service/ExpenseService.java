@@ -54,7 +54,6 @@ public class ExpenseService {
 
         nextId++;
 
-        System.out.println("Expense added successfully");
     }
 
     public int getExpenseCount() {
@@ -80,7 +79,7 @@ public class ExpenseService {
                 expenses.remove(expense);
                 saveAllExpenses();
 
-                System.out.println("Expense deleted successfully");
+
 
                 return;
             }
@@ -103,7 +102,7 @@ public class ExpenseService {
                 expense.setAmount(amount);
                 expense.setCategory(category);
                 saveAllExpenses();
-                System.out.println("Expense updated successfully");
+
 
                 return;
             }
@@ -167,7 +166,7 @@ public class ExpenseService {
             }
         }
 
-        System.out.println("Expenses loaded successfully");
+
     }
     public void saveAllExpenses() {
 

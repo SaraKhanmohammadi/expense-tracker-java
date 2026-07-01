@@ -10,6 +10,7 @@ public class Main {
 
         ExpenseService expenseService = new ExpenseService();
         expenseService.loadExpenses();
+        System.out.println("Expenses loaded successfully");
         Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
@@ -44,6 +45,7 @@ public class Main {
                     try {
 
                         expenseService.addExpense(title, amount, category);
+                        System.out.println("Expense added successfully.");
 
                     } catch (InvalidExpenseException e) {
 
@@ -62,6 +64,7 @@ public class Main {
                     int id = scanner.nextInt();
 
                     expenseService.deleteExpense(id);
+                    System.out.println("Expense deleted successfully");
                     break;
 
                 case 4:
@@ -81,7 +84,7 @@ public class Main {
                     String newCategory = scanner.nextLine();
 
                     expenseService.updateExpense(updateId, newTitle, newAmount, newCategory);
-
+                    System.out.println("Expense updated successfully");
                     break;
 
 
