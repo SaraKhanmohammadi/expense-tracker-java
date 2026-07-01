@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import com.expense.util.FileService;
 import com.expense.exception.InvalidExpenseException;
 import java.util.Comparator;
+import java.util.List;
 
 public class ExpenseService {
 
-    private ArrayList<Expense> expenses = new ArrayList<>();
+    private List<Expense> expenses = new ArrayList<>();
 
     private int nextId = 1;
     private FileService fileService = new FileService();

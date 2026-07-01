@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import com.expense.model.Expense;
+import java.util.List;
+
 public class FileService {
 
     private final String FILE_NAME = "expenses.txt";
@@ -54,7 +56,7 @@ public class FileService {
     }
 
 
-    public void overwriteExpenses(ArrayList<Expense> expenses) {
+    public void overwriteExpenses(List<Expense> expenses) {
 
         try {
 
