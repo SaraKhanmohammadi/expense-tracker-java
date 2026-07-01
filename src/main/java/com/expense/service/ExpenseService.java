@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import com.expense.util.FileService;
 import com.expense.exception.InvalidExpenseException;
+import java.util.Comparator;
 
 public class ExpenseService {
 
@@ -172,6 +173,13 @@ public class ExpenseService {
 
         fileService.overwriteExpenses(expenses);
     }
+    public void sortByAmount() {
 
+        expenses.sort(
+                Comparator.comparingDouble(Expense::getAmount)
+        );
+
+        showAllExpenses();
+    }
 
 }

@@ -22,7 +22,8 @@ public class Main {
             System.out.println("3. Delete Expense");
             System.out.println("4. Update Expense");
             System.out.println("5. Monthly Report");
-            System.out.println("5. Exit");
+            System.out.println("6. Sort by Amount");
+            System.out.println("7. Exit");
 
             System.out.print("Choose option: ");
 
@@ -89,8 +90,17 @@ public class Main {
                     break;
 
                 case 6:
+
+                    expenseService.sortByAmount();
+
+                    break;
+
+                case 7:
+
                     running = false;
+
                     System.out.println("Goodbye");
+
                     break;
 
                 default:
